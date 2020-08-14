@@ -8,5 +8,5 @@ public class UtilitiesTest {
   void testDistanceCal() {
     double result = Utilities.distanceCal(53.483959, -2.244644);
     Assertions.assertEquals(163.0881686282125, result);
-  }x
+  }
 }
