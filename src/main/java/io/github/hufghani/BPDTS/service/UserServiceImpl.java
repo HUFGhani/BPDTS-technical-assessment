@@ -29,7 +29,7 @@ public class UserServiceImpl  implements UserService{
     List<User> allUsers = bpdtsClient.retrieveAllUsers();
     List<User> result = new ArrayList<>();
 
-    allUsers.forEach((user) -> {
+    allUsers.forEach(user -> {
       double distanceMiles = Utilities.distanceCal(user.getLatitude(),user.getLongitude());
       if (distanceMiles <= distance) result.add(user);
     });
