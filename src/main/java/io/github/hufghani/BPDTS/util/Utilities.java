@@ -1,4 +1,4 @@
-package io.github.hufghani.BPDTS.util;
+package io.github.hufghani.bpdts.util;
 
 public class Utilities {
 

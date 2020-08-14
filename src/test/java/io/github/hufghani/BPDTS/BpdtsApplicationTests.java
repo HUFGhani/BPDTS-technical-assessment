@@ -1,4 +1,4 @@
-package io.github.hufghani.BPDTS;
+package io.github.hufghani.bpdts;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
