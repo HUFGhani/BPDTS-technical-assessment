@@ -12,7 +12,7 @@ dependencyManagement {
 group = 'io.github.hufghani'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '13'
-targetCompatibility = "8"
+targetCompatibility = "13"
 
 configurations {
 	compileOnly {
