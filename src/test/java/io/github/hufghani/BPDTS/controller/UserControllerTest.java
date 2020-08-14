@@ -58,7 +58,31 @@ class UserControllerTest {
 
     when(userService.getUserFromLondon()).thenReturn(users);
     this.mockMvc.perform(MockMvcRequestBuilders.get("/london/users")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
-
   }
 
+  @Test
+  void testGetAllLondonUsersByDistance() throws Exception {
+    List<User> users = new ArrayList<>();
+    users.add(new User(1, "Bob", "Smith", "bob.smith@test.com", "192.57.232.111", 51.509865,
+        -0.118092));
+    users.add(new User(3, "will", "Smith", "will.smith@test.com", "192.57.50.11", 51.509865,
+        -0.118092));
+
+    String expected = "[{\"id\":1,\"first_name\":\"Bob\",\"last_name\":\"Smith\",\"email\":\"bob.smith@test.com\",\"ip_address\":\"192.57.232.111\",\"latitude\":51.509865,\"longitude\":-0.118092},"
+        + "{\"id\":3,\"first_name\":\"will\",\"last_name\":\"Smith\",\"email\":\"will.smith@test.com\",\"ip_address\":\"192.57.50.11\",\"latitude\":51.509865,\"longitude\":-0.118092}]";
+
+    when(userService.getLondonUsersByDistance(1)).thenReturn(users);
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/london/users/distance/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+  }
+
+  @Test
+  void testGetUserById() throws Exception{
+    User user = new User(1, "Bob", "Smith", "bob.smith@test.com", "192.57.232.111", 51.509865,
+        -0.118092);
+    String expected = "{\"id\":1,\"first_name\":\"Bob\",\"last_name\":\"Smith\",\"email\":\"bob.smith@test.com\",\"ip_address\":\"192.57.232.111\",\"latitude\":51.509865,\"longitude\":-0.118092}";
+
+    when(userService.getUserById(1)).thenReturn(user);
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/user/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+
+  }
 }
