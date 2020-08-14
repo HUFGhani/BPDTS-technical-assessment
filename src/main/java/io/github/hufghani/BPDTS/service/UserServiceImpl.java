@@ -16,4 +16,9 @@ public class UserServiceImpl  implements UserService{
   public List<User> getAllUsers() {
     return bpdtsClient.retrieveAllUsers();
   }
+
+  @Override
+  public List<User> getUserFromLondon() {
+    return bpdtsClient.retrieveLondonUsers();
+  }
 }

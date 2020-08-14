@@ -9,4 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface Client {
   @GetMapping(value = "/users")
   List<User> retrieveAllUsers();
+
+  @GetMapping(value = "/city/London/users")
+  List<User> retrieveLondonUsers();
 }

@@ -46,4 +46,19 @@ class UserControllerTest {
     this.mockMvc.perform(MockMvcRequestBuilders.get("/users")).andExpect(status().isOk())
         .andExpect(content().string(containsString(expected)));
   }
+  @Test
+  void testGetAllLondonUsers() throws Exception {
+    List<User> users = new ArrayList<>();
+    users.add(new User(1, "Bob", "Smith", "bob.smith@test.com", "192.57.232.111", 51.509865,
+        -0.118092));
+    users.add(new User(2, "will", "Smith", "will.smith@test.com", "192.57.50.11", 51.509865,
+        -0.118092));
+    String expected = "[{\"id\":1,\"first_name\":\"Bob\",\"last_name\":\"Smith\",\"email\":\"bob.smith@test.com\",\"ip_address\":\"192.57.232.111\",\"latitude\":51.509865,\"longitude\":-0.118092},"
+        + "{\"id\":2,\"first_name\":\"will\",\"last_name\":\"Smith\",\"email\":\"will.smith@test.com\",\"ip_address\":\"192.57.50.11\",\"latitude\":51.509865,\"longitude\":-0.118092}]";
+
+    when(userService.getUserFromLondon()).thenReturn(users);
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/london/users")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+
+  }
+
 }

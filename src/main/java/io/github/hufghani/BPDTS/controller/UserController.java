@@ -21,4 +21,8 @@ public class UserController {
     return userService.getAllUsers();
   }
 
+  @GetMapping("/london/users")
+  public List <User> getAllLondonUsers(){
+    return userService.getUserFromLondon();
+  }
 }
