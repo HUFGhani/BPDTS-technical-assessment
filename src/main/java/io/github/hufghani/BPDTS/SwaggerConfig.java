@@ -1,5 +1,6 @@
 package io.github.hufghani.bpdts;
 
+import java.util.Collections;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -25,15 +26,13 @@ public class SwaggerConfig {
   }
 
   private ApiInfo metaData() {
-    ApiInfo apiInfo = new ApiInfo(
-        "BPDTS-technical-assessment",
-        "BPDTS-technical-assessment",
-        "1.0",
-        "Terms of service",
+    return  new ApiInfo(
+        "BPDTS-technical-assessment", //title
+        "BPDTS-technical-assessment", //description
+        "Version 1.0", //version
+        "Terms of service", //terms of service URL
         new Contact("Hamza Umar Farooq Ghani", "https://hufghani.github.io", "h.u.f.ghani@gmail.com"),
-        "Apache License Version 2.0",
-        "https://www.apache.org/licenses/LICENSE-2.0");
-    return apiInfo;
+        "Apache License Version 2.0", "https://www.apache.org/licenses/LICENSE-2.0", Collections.emptyList());
   }
 
 }
