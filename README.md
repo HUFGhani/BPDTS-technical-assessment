@@ -55,5 +55,5 @@ Move the service to AWS, you can add load balance and spin up other AWS services
 - Add Contract testing
 - Add Circuit breaker
 - Dockerfile
-- migrate to kubernetes
-- add Structured Logging
+- Migrate to kubernetes
+- Add Structured Logging
