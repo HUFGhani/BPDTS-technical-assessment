@@ -49,11 +49,12 @@ To set how many pods required for horizontal or vertical scaling I would need to
 Move the service to AWS, you can add load balance and spin up other AWS services on the fly.
 
 ## Other improvements
-- Add a React Frontend
+- Add frontend with a react framework 
 - Move to AWS
-- Add monitoring, alerting and Tracing
-- Add Contract testing
-- Add Circuit breaker
+- Add monitoring, alerting and tracing
+- Add contract testing
+- Add circuit breaker
 - Dockerfile
 - Migrate to kubernetes
-- Add Structured Logging
+- Add structured logging
+- Semantic Version
