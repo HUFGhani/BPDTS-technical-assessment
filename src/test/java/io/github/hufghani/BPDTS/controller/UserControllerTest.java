@@ -40,7 +40,7 @@ class UserControllerTest {
             + "{\"id\":3,\"first_name\":\"will\",\"last_name\":\"Smith\",\"email\":\"will.smith@test.com\",\"ip_address\":\"192.57.50.11\",\"latitude\":51.509865,\"longitude\":-0.118092}]";
 
     when(userService.getAllUsers()).thenReturn(users);
-    this.mockMvc.perform(MockMvcRequestBuilders.get("/users")).andExpect(status().isOk())
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/api/users")).andExpect(status().isOk())
         .andExpect(content().string(containsString(expected)));
   }
   @Test
@@ -54,7 +54,7 @@ class UserControllerTest {
         + "{\"id\":2,\"first_name\":\"will\",\"last_name\":\"Smith\",\"email\":\"will.smith@test.com\",\"ip_address\":\"192.57.50.11\",\"latitude\":51.509865,\"longitude\":-0.118092}]";
 
     when(userService.getUserFromLondon()).thenReturn(users);
-    this.mockMvc.perform(MockMvcRequestBuilders.get("/london/users")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/api/london/users")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
   }
 
   @Test
@@ -69,7 +69,7 @@ class UserControllerTest {
         + "{\"id\":3,\"first_name\":\"will\",\"last_name\":\"Smith\",\"email\":\"will.smith@test.com\",\"ip_address\":\"192.57.50.11\",\"latitude\":51.509865,\"longitude\":-0.118092}]";
 
     when(userService.getLondonUsersByDistance(1)).thenReturn(users);
-    this.mockMvc.perform(MockMvcRequestBuilders.get("/london/users/distance/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/api/london/users/distance/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
   }
 
   @Test
@@ -79,7 +79,7 @@ class UserControllerTest {
     String expected = "{\"id\":1,\"first_name\":\"Bob\",\"last_name\":\"Smith\",\"email\":\"bob.smith@test.com\",\"ip_address\":\"192.57.232.111\",\"latitude\":51.509865,\"longitude\":-0.118092}";
 
     when(userService.getUserById(1)).thenReturn(user);
-    this.mockMvc.perform(MockMvcRequestBuilders.get("/user/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
+    this.mockMvc.perform(MockMvcRequestBuilders.get("/api/user/1")).andExpect(status().isOk()).andExpect(content().string(containsString(expected)));
 
   }
 }
