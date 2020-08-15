@@ -1,14 +1,7 @@
 package io.github.hufghani.bpdts;
 
-import static org.springframework.web.servlet.function.RequestPredicates.GET;
-import static org.springframework.web.servlet.function.RouterFunctions.route;
-import static springfox.documentation.builders.PathSelectors.regex;
-
-import java.net.URI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.ServerResponse;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -43,9 +36,4 @@ public class SwaggerConfig {
     return apiInfo;
   }
 
-  @Bean
-  RouterFunction<ServerResponse> routerFunction() {
-    return route(GET("/"), req ->
-        ServerResponse.temporaryRedirect(URI.create("swagger-ui.html")).build());
-  }
 }
